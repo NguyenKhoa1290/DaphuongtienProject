@@ -1,0 +1,46 @@
+/* ================================================================
+   Friends page styles
+   ================================================================ */
+
+.page {
+  padding: var(--page-padding);
+  padding-top: 60px;
+  min-height: 100vh;
+  animation: fadeInUp 0.3s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: 'Sora', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.addBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #0d0d1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(94, 231, 223, 0.3);
+  transition: var(--transition-spring);
+}
+
+.addBtn:hover {
+  transform: scale(1.08) rotate(90deg);
+  box-shadow: 0 6px 20px rgba(94, 231, 223, 0.45);
+}
+
+.addBtn:active {
+  transform: scale(0.95);
+}

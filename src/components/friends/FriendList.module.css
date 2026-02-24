@@ -1,0 +1,87 @@
+/* ================================================================
+   FriendList styles
+   ================================================================ */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- Search --- */
+.searchWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 40px 12px 40px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.searchInput:focus {
+  border-color: rgba(94, 231, 223, 0.5);
+  box-shadow: 0 0 0 3px rgba(94, 231, 223, 0.08);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 12px;
+  color: var(--text-muted);
+  font-size: 12px;
+  padding: 4px;
+  transition: var(--transition);
+}
+
+.clearBtn:hover {
+  color: var(--text);
+}
+
+/* --- Section title --- */
+.sectionTitle {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 14px var(--page-padding) 8px;
+}
+
+/* --- Divider --- */
+.divider {
+  height: 1px;
+  background: var(--glass-border);
+  margin: 0 var(--page-padding);
+}
+
+/* --- Empty state --- */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 48px 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.emptyIcon {
+  font-size: 32px;
+}

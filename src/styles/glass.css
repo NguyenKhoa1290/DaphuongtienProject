@@ -1,0 +1,73 @@
+/* ================================================================
+   GLASS - Utility classes cho hiệu ứng Liquid Glass
+   Dùng lại các class này xuyên suốt toàn app
+   ================================================================ */
+
+/* --- Base glass --- */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+}
+
+/* --- Glass đậm hơn, dùng cho modal, card nổi bật --- */
+.glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-strong);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+}
+
+/* --- Glass có hover effect --- */
+.glass-interactive {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.glass-interactive:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-strong);
+}
+
+.glass-interactive:active {
+  transform: scale(0.98);
+}
+
+/* --- Divider bên trong glass card --- */
+.glass-divider {
+  height: 1px;
+  background: var(--glass-border);
+  margin: 0 var(--page-padding);
+}
+
+/* --- Bottom sheet (modal kéo lên từ dưới) --- */
+.glass-sheet {
+  background: rgba(18, 16, 43, 0.92);
+  backdrop-filter: blur(40px) saturate(2);
+  -webkit-backdrop-filter: blur(40px) saturate(2);
+  border: 1px solid var(--glass-border);
+  border-bottom: none;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Overlay backdrop --- */
+.glass-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 50;
+}

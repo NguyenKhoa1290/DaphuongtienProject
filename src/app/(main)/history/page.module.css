@@ -1,0 +1,21 @@
+/* ================================================================
+   History page styles
+   ================================================================ */
+
+.page {
+  padding: var(--page-padding);
+  padding-top: 60px;
+  min-height: 100vh;
+  animation: fadeInUp 0.3s ease;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: 'Sora', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+}

@@ -1,0 +1,45 @@
+/* ================================================================
+   Avatar styles
+   ================================================================ */
+
+.avatar {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.initial {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* --- Sizes --- */
+.sm {
+  width: 40px;
+  height: 40px;
+}
+
+.sm .initial {
+  font-size: 15px;
+}
+
+.md {
+  width: 48px;
+  height: 48px;
+}
+
+.md .initial {
+  font-size: 18px;
+}
+
+.lg {
+  width: 72px;
+  height: 72px;
+}
+
+.lg .initial {
+  font-size: 28px;
+}

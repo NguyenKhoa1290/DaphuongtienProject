@@ -1,0 +1,88 @@
+/* ================================================================
+   CallControls styles
+   ================================================================ */
+
+.controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 40px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.75) 0%,
+      transparent 100%);
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(0.93);
+}
+
+.circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+/* --- Glass (bật) --- */
+.circleGlass {
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-strong);
+  color: var(--text);
+}
+
+/* --- Off (tắt) --- */
+.circleOff {
+  background: rgba(255, 107, 138, 0.15);
+  border: 1px solid rgba(255, 107, 138, 0.35);
+  color: var(--danger);
+}
+
+/* --- Kết thúc (đỏ nổi bật) --- */
+.circleEnd {
+  width: 66px;
+  height: 66px;
+  background: linear-gradient(135deg, #ff4d6d, #ff6b8a);
+  border: none;
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(255, 75, 100, 0.5);
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-family: 'Sora', sans-serif;
+}
+
+.labelDanger {
+  color: var(--danger);
+}
+
+.btnOff .label {
+  color: var(--danger);
+}
