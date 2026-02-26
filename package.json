@@ -1,0 +1,23 @@
+{
+  "name": "daphuongtienproject",
+  "version": "1.0.0",
+  "main": "changeButtons.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NguyenKhoa1290/DaphuongtienProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NguyenKhoa1290/DaphuongtienProject/issues"
+  },
+  "homepage": "https://github.com/NguyenKhoa1290/DaphuongtienProject#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

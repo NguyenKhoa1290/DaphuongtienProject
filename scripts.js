@@ -1,12 +1,10 @@
-const videoEl = document.querySelector("#my-video"); //Lấy phần tử video từ DOM
+const videoEl = document.querySelector("#my-video");
 let stream = null; //Biến khởi tạo (Dùng kiểu var để dùng được ở mọi nơi trong code)
-
+let mediaStream = null; //Biến khởi tạo (Dùng kiểu var để dùng được ở mọi nơi trong code)
 const constraints = {
   audio: true,
   video: true,
 };
-
-
 
 const getMicandCamera = async (e) => {
   try {
@@ -94,3 +92,13 @@ document
 document
   .querySelector("#share-screen")
   .addEventListener("click", (e) => shareScreen(e));
+
+document
+  .querySelector("#audio-input")
+  .addEventListener("change", (e) => changeAudioInput(e));
+document
+  .querySelector("#audio-output")
+  .addEventListener("change", (e) => changeAudioOutput(e));
+document
+  .querySelector("#video-input")
+  .addEventListener("change", (e) => changeVideoInput(e));

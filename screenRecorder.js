@@ -1,13 +1,13 @@
 let mediaRecorder;
 let recordedBlod;
 const startRecording = () => {
-  if (!stream) {
+  if (!mediaStream) {
     alert("Vui lòng bật camera trước khi ghi hình.");
     return;
   }
   console.log("Bắt đầu ghi hình...");
   recordedBlod = [];
-  mediaRecorder = new MediaRecorder(stream);
+  mediaRecorder = new MediaRecorder(mediaStream); //Đổi thành mediaStream nếu cần ghi màn hình chứ không phải từ cam nhé
   mediaRecorder.ondataavailable = (e) => {
     console.log("Dữ liệu ghi hình đã sẵn sàng:");
     recordedBlod.push(e.data);
