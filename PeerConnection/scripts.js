@@ -1,10 +1,19 @@
-const socket = io.connect('https://localhost:5069/');
+const userName = "Nhon" + Math.floor(Math.random() * 100000);
+const password = "123456";
+document.querySelector('#user-name').innerHTML = userName;
+const socket = io.connect('https://localhost:5069/',{
+    auth:{
+        userName,
+        password
+    }
+});
 
 const localVideoEl = document.querySelector('#local-video');
 const remoteVideoEl= document.querySelector('#remote-video');
 let localStream;// luu tru stream cua nguoi goi
 let remoteStream;// luu tru stream cua nguoi nhan
 let peerConnection;// luu tru ket noi peer-to-peer
+let didIOffer = false;// bien kiem tra xem da tao offer chua, neu da tao thi khi nhan offer tu may khac thi se tu dong tao answer de thiet lap ket noi peer-to-peer
 
 let peerConfiguration = {
     iceServers:[
@@ -34,10 +43,16 @@ const call = async e =>{
         console.log('Offer created: ');
         console.log(offer);
         peerConnection.setLocalDescription(offer);
+        didIOffer = true;
+        socket.emit('offer moi', offer);// gui offer den may nhan qua socket.io
     }
     catch(err){
         console.error('Error creating offer: ', err);
     }
+}
+
+const answerOffer = (offerObj)=>{
+    console.log(offerObj);
 }
 
 const createPeerConnection = async () =>{
@@ -52,8 +67,15 @@ const createPeerConnection = async () =>{
     peerConnection.addEventListener('icecandidate', e =>{
         console.log('New ICE candidate: ');
         console.log(e);
+        if(e.candidate){
+            socket.emit('Gui IceCandidateToSignalServer', {
+                iceCandidate: e.candidate,
+                iceUserName: userName,
+                didIOffer,
+            });
+        }
     })
-    resolve();
+    resolve(); 
 })
 }
 
