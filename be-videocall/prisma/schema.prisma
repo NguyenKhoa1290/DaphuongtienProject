@@ -1,0 +1,61 @@
+// ================================================================
+// PRISMA SCHEMA - Định nghĩa bảng và quan hệ
+// Prisma sẽ tự tạo bảng trong SQL Server khi chạy migrate
+// ================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+// ================================================================
+// Bảng Users - Lưu thông tin người dùng
+// ================================================================
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+
+  // Quan hệ
+  friendsAsUser    Friend[]     @relation("UserFriends")
+  friendsAsFriend  Friend[]     @relation("FriendUser")
+  callsAsCaller    CallHistory[] @relation("Caller")
+  callsAsReceiver  CallHistory[] @relation("Receiver")
+}
+
+// ================================================================
+// Bảng Friends - Lưu quan hệ bạn bè
+// ================================================================
+model Friend {
+  id        String   @id @default(cuid())
+  userId    String
+  friendId  String
+  createdAt DateTime @default(now())
+
+  // Quan hệ
+  user      User @relation("UserFriends", fields: [userId], references: [id], onUpdate: NoAction, onDelete: NoAction)
+  friend    User @relation("FriendUser", fields: [friendId], references: [id], onUpdate: NoAction, onDelete: NoAction)
+}
+
+// ================================================================
+// Bảng CallHistory - Lưu lịch sử cuộc gọi
+// ================================================================
+model CallHistory {
+  id         String   @id @default(cuid())
+  callerId   String
+  receiverId String
+  direction  String
+  status     String
+  startedAt  DateTime @default(now())
+  duration   Int?
+
+  // Quan hệ
+  caller     User @relation("Caller", fields: [callerId], references: [id], onUpdate: NoAction, onDelete: NoAction)
+  receiver   User @relation("Receiver", fields: [receiverId], references: [id], onUpdate: NoAction, onDelete: NoAction)
+}
